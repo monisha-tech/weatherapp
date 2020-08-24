@@ -1,4 +1,6 @@
 import Controller from '@ember/controller';
+import fetch from 'fetch';
+
 export default Controller.extend({
   init() {
     this._super(...arguments);
@@ -41,28 +43,20 @@ export default Controller.extend({
   },
 
   revealPosition(position) {
-    var markerTitle = "You are here";
-
     var latlng = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
-    var myOptions = {
-      zoom: 16,
-      center: latlng,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-    };
-
-    var map = new google.maps.Map(mapCanvas, myOptions);
-
-    var marker = new google.maps.Marker({
-      position: latlng,
-      map: map,
-      title: markerTitle
+    var latitude = position.coords.latitude;
+    var longitude = position.coords.longitude;
+    return fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=6646b15234278a594d6d6cb6d7540a05`).then(function(response) {
+      return response.json();
     });
   },
 
   positionDenied() {
     console.log('denied');
+  },
+
+  getdata(json) {
+    this.set('data', 'json._result');
   }
-
-
 
 });
