@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html>
+  <script src="https://maps.googleapis.com/maps/api/js?sensor=false" type="text/javascript"></script>
+  <script src="/assets/gmap3.js?body=1" type="text/javascript"></script>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,64 +23,6 @@
     <script src="{{rootURL}}assets/weatherapp.js"></script>
 
     {{content-for "body-footer"}}
+
   </body>
-  <script>
-
-    var positionDenied = function() {
-      geoBtn.style.display = 'inline';
-    };
-
-    var revealPosition = function(position) {
-      geoBtn.style.display = 'none';
-      var markerTitle = "You are here";
-
-      var latlng = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
-      var myOptions = {
-        zoom: 16,
-        center: latlng,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-      };
-
-      var map = new google.maps.Map(mapCanvas, myOptions);
-
-      var marker = new google.maps.Marker({
-        position: latlng,
-        map: map,
-        title: markerTitle
-      });
-    }
-
-    if (!"geolocation" in navigator) {
-      alert("No geolocation available!");
-    }
-
-    var geoSettings = {
-      enableHighAccuracy: false,
-      maximumAge        : 30000,
-      timeout           : 20000
-    };
-    function handlePermission() {
-      navigator.permissions.query({name:'geolocation'}).then(function(result) {
-        if (result.state == 'granted') {
-          report(result.state);
-          geoBtn.style.display = 'none';
-        } else if (result.state == 'prompt') {
-          report(result.state);
-          navigator.geolocation.getCurrentPosition(revealPosition,positionDenied,geoSettings);
-        } else if (result.state == 'denied') {
-          report(result.state);
-          geoBtn.style.display = 'inline';
-        }
-        result.onchange = function() {
-          report(result.state);
-        }
-      });
-    }
-
-    function report(state) {
-      console.log('Permission: ' + state);
-    }
-
-    handlePermission();
-  </script>
 </html>
