@@ -41,7 +41,7 @@
     "ember-maybe-import-regenerator": "^0.1.6",
     "ember-qunit": "^4.6.0",
     "ember-resolver": "^8.0.0",
-    "ember-service-worker": "^0.6.6",
+    "ember-service-worker": "^0.8.4",
     "ember-service-worker-asset-cache": "^0.6.4",
     "ember-service-worker-index": "^0.7.0",
     "ember-source": "~3.19.0",
