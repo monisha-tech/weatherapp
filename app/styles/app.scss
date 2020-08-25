@@ -1,5 +1,11 @@
-@import 'ember-paper';
 @import url('https://fonts.googleapis.com/css?family=Lobster&display=swap');
+@import "./search.scss";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
 body {
   background-color: #444;
