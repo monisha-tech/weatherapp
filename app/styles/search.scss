@@ -1,0 +1,31 @@
+.search-wrapper {
+  .input-bar {
+    position: relative;
+
+    input {
+      width: 100%;
+      border: none;
+      padding: 1rem;
+      outline: none;
+      font-size: 1rem;
+    }
+
+    svg {
+      position: absolute;
+      top: 25%;
+      right: 1.25rem;
+    }
+  }
+
+  .search-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    kbd {
+      background: #e5e5e5;
+      padding: 0.3rem;
+      border-radius: 0.1rem;
+    }
+  }
+}

@@ -1,5 +1,6 @@
 import Controller from '@ember/controller';
 import fetch from 'fetch';
+import { OPEN_WEATHER_CONSTANTS } from '../constants/OPEN_WEATHER_CONSTANTS';
 
 export default Controller.extend({
   init() {
@@ -23,7 +24,7 @@ export default Controller.extend({
         self.report(result.state);
         self.set('styleProperty', 'display: none;');
       //  geoBtn.style.display = 'none';
-      if (!"geolocation" in navigator) {
+      if (!("geolocation" in navigator)) {
         alert("No geolocation available!");
       }
         navigator.geolocation.getCurrentPosition(self.revealPosition.bind(self),self.positionDenied,geoSettings);
@@ -43,16 +44,9 @@ export default Controller.extend({
   },
 
   async revealPosition(position) {
-    var latlng = new google.maps.LatLng(position.coords.latitude,position.coords.longitude);
     var latitude = position.coords.latitude;
     var longitude = position.coords.longitude;
-    // return fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=6646b15234278a594d6d6cb6d7540a05`).then(function(response) {
-    //   var json = await response.json();
-    //   console.log(json);
-    //   // self.set('content', json._result);
-    //   // return self.getdata(response.json());
-    // });
-    var response = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=6646b15234278a594d6d6cb6d7540a05`);
+    var response = await fetch(`${OPEN_WEATHER_CONSTANTS.BASE_URL}?lat=${latitude}&lon=${longitude}&appid=${OPEN_WEATHER_CONSTANTS.API_KEY}`);
     var json = await response.json();
     this.set('data', json);
     console.log(json);
