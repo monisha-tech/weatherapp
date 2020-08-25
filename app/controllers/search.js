@@ -16,7 +16,6 @@ export default Controller.extend({
     }
     try {
       var value = event.currentTarget.value;
-      console.log(event.currentTarget.value);
       this.set('status', 'pending');
       var response = await fetch(`${OPEN_WEATHER_CONSTANTS.BASE_URL}?q=${value}&appid=${OPEN_WEATHER_CONSTANTS.API_KEY}`);
       var json = await response.json();

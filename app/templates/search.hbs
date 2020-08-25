@@ -19,7 +19,7 @@
     {{else if (eq this.status 'resolved')}}
       <Weather
         @location={{data.name}}
-        @description={{data.weather.[0].description}}
+        @description={{data.weather.[0].main}}
       />
     {{else}}
       <p>Something went wrong. Please try again...</p>

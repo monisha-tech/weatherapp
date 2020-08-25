@@ -1,8 +1,29 @@
-<div class="content">
+<div class="content card">
   <h3>
     <span>Location:</span>
     <span>{{@location}}</span></h3>
   <h3>
     <span>Weather:</span>
     <span>{{@description}}</span></h3>
+    {{#if (eq @description "Thunderstorm")}}
+      <img src="assets/thunderstorm.png" alt="" srcset="">
+    {{else if (eq @description "Drizzle")}}
+      <img src="assets/drizzle.png" alt="" srcset="">
+    {{else if (eq @description "Rain")}}
+      <img src="assets/rain.png" alt="" srcset="">
+    {{else if (eq @description "Snow")}}
+      <img src="assets/snow.png" alt="" srcset="">
+    {{else if (eq @description "Clear")}}
+      <img src="assets/clear.png" alt="" srcset="">
+    {{else if (eq @description "Clouds")}}
+      <img src="assets/clouds.png" alt="" srcset="">
+    {{else if (eq @description "Tornado")}}
+      <img src="assets/tornado.png" alt="" srcset="">
+    {{else if (eq @description "Mist")}}
+      <img src="assets/mist.png" alt="" srcset="">
+    {{else if (eq @description "Dust")}}
+      <img src="assets/dust.png" alt="" srcset="">
+    {{else}}
+      <img src="assets/fog.png" alt="" srcset="">
+    {{/if}}
 </div>
