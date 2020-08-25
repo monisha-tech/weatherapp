@@ -1,0 +1,39 @@
+{
+  "short_name": "Weather",
+  "name": "Weather PWA",
+  "description": "Weather forecast information",
+  "icons": [
+    {
+      "src": "assets/icon-96.png",
+      "type": "image/png",
+      "sizes": "96x96"
+    },
+    {
+      "src": "assets/icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "assets/icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#666",
+  "display": "standalone",
+  "scope": "/",
+  "theme_color": "#3367D6",
+  "shortcuts": [
+    {
+      "name": "Search weather in your city",
+      "short_name": "City",
+      "description": "View weather information for a city",
+      "url": "/search",
+      "icons": [{
+        "src": "/assets/search-shortcut.png",
+        "sizes": "96x96"
+      }]
+    }
+  ]
+}
