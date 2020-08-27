@@ -21,6 +21,7 @@ module.exports = function(defaults) {
     config.fingerprint = {
       prepend: '/weatherapp/'
     };
+    config['esw-cache-fallback'].patterns[1] = 'https://monisha-tech.github.io/weatherapp/sw-registration.js'
   }
   let app = new EmberApp(defaults, config);
 
