@@ -2,8 +2,10 @@
 
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
+const isProductionMode = EmberApp.env() === "production";
+
 module.exports = function(defaults) {
-  let app = new EmberApp(defaults, {
+  let config = {
     SRI: {
       enabled: false
     },
@@ -14,7 +16,13 @@ module.exports = function(defaults) {
         'http://localhost:4200/sw-registration.js'
       ],
     }
-  });
+  };
+  if (isProductionMode) {
+    config.fingerprint = {
+      prepend: '/weatherapp/'
+    };
+  }
+  let app = new EmberApp(defaults, config);
 
   // Use `app.import` to add additional libraries to the generated
   // output files.
