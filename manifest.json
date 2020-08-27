@@ -4,34 +4,34 @@
   "description": "Weather forecast information",
   "icons": [
     {
-      "src": "assets/icon-96.png",
+      "src": "/weatherapp/assets/icon-96-8869e7bd1510daba976f98fe2a22cf94.png",
       "type": "image/png",
       "sizes": "96x96"
     },
     {
-      "src": "assets/icon-192.png",
+      "src": "/weatherapp/assets/icon-192-3d338e807a45b9ce603cb1207f1ede6d.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "assets/icon-512.png",
+      "src": "/weatherapp/assets/icon-512-a6b116640f3827faab79605ccfdd1834.png",
       "type": "image/png",
       "sizes": "512x512"
     }
   ],
-  "start_url": "/",
+  "start_url": "/weatherapp/",
   "background_color": "#666",
   "display": "standalone",
-  "scope": "/",
+  "scope": "/weatherapp/",
   "theme_color": "#3367D6",
   "shortcuts": [
     {
       "name": "Search weather in your city",
       "short_name": "City",
       "description": "View weather information for a city",
-      "url": "/search",
+      "url": "/weatherapp/#/search",
       "icons": [{
-        "src": "/assets/search-shortcut.png",
+        "src": "/weatherapp/assets/search-shortcut-f2273f185fc0008d1a94a1efdefa70c6.png",
         "sizes": "96x96"
       }]
     }
