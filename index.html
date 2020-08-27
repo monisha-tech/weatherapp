@@ -24,7 +24,7 @@
     <script src="/weatherapp/assets/vendor-cb64fdf2ee086c330c4241746dd04f77.js"></script>
     <script src="/weatherapp/assets/weatherapp-f2fbbcec63d7a0c767cbf16e4df23fc1.js"></script>
 
-    <script>!function(){"use strict";var e=[],r=[];"serviceWorker"in navigator&&navigator.serviceWorker.register("/sw.js",{scope:"/"}).then((function(r){for(var n=Promise.resolve(),o=function(o,t){n=n.then((function(){return e[o](r)}))},t=0,i=e.length;t<i;t++)o(t);return n.then((function(){console.log("Service Worker registration succeeded. Scope is "+r.scope)}))})).catch((function(e){for(var n=Promise.resolve(),o=function(o,t){n=n.then((function(){return r[o](e)}))},t=0,i=r.length;t<i;t++)o(t);return n.then((function(){console.log("Service Worker registration failed with "+e)}))}))}();
+    <script>!function(){"use strict";var e=[],r=[];"serviceWorker"in navigator&&navigator.serviceWorker.register("/weatherapp/sw.js",{scope:"/weatherapp/"}).then((function(r){for(var n=Promise.resolve(),t=function(t,o){n=n.then((function(){return e[t](r)}))},o=0,i=e.length;o<i;o++)t(o);return n.then((function(){console.log("Service Worker registration succeeded. Scope is "+r.scope)}))})).catch((function(e){for(var n=Promise.resolve(),t=function(t,o){n=n.then((function(){return r[t](e)}))},o=0,i=r.length;o<i;o++)t(o);return n.then((function(){console.log("Service Worker registration failed with "+e)}))}))}();
 //# sourceMappingURL=sw-registration.map</script>
 
           <div id="ember-basic-dropdown-wormhole"></div>
