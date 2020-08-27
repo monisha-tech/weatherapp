@@ -7,27 +7,27 @@ return function(){var r,n=f(e)
 if(t){var a=f(this).constructor
 r=Reflect.construct(n,arguments,a)}else r=n.apply(this,arguments)
 return l(this,r)}}function l(e,t){return!t||"object"!==a(t)&&"function"!=typeof t?p(e):t}function p(e){if(void 0===e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called")
-return e}function f(e){return(f=Object.setPrototypeOf?Object.getPrototypeOf:function(e){return e.__proto__||Object.getPrototypeOf(e)})(e)}function s(e,t,r){return t in e?Object.defineProperty(e,t,{value:r,enumerable:!0,configurable:!0,writable:!0}):e[t]=r,e}Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0
-var c=function(e){(function(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function")
+return e}function f(e){return(f=Object.setPrototypeOf?Object.getPrototypeOf:function(e){return e.__proto__||Object.getPrototypeOf(e)})(e)}function c(e,t,r){return t in e?Object.defineProperty(e,t,{value:r,enumerable:!0,configurable:!0,writable:!0}):e[t]=r,e}Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0
+var s=function(e){(function(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function")
 e.prototype=Object.create(t&&t.prototype,{constructor:{value:e,writable:!0,configurable:!0}}),t&&i(e,t)})(a,Ember.Application)
 var r=u(a)
 function a(){var e
 o(this,a)
 for(var i=arguments.length,u=new Array(i),l=0;l<i;l++)u[l]=arguments[l]
-return s(p(e=r.call.apply(r,[this].concat(u))),"modulePrefix",n.default.modulePrefix),s(p(e),"podModulePrefix",n.default.podModulePrefix),s(p(e),"Resolver",t.default),e}return a}()
-e.default=c,(0,r.default)(c,n.default.modulePrefix)})),define("weatherapp/component-managers/glimmer",["exports","@glimmer/component/-private/ember-component-manager"],(function(e,t){Object.defineProperty(e,"__esModule",{value:!0}),Object.defineProperty(e,"default",{enumerable:!0,get:function(){return t.default}})})),define("weatherapp/components/weather",["exports"],(function(e){Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0
+return c(p(e=r.call.apply(r,[this].concat(u))),"modulePrefix",n.default.modulePrefix),c(p(e),"podModulePrefix",n.default.podModulePrefix),c(p(e),"Resolver",t.default),e}return a}()
+e.default=s,(0,r.default)(s,n.default.modulePrefix)})),define("weatherapp/component-managers/glimmer",["exports","@glimmer/component/-private/ember-component-manager"],(function(e,t){Object.defineProperty(e,"__esModule",{value:!0}),Object.defineProperty(e,"default",{enumerable:!0,get:function(){return t.default}})})),define("weatherapp/components/weather",["exports"],(function(e){Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0
 var t=Ember.HTMLBars.template({id:"Nbo53Gz3",block:'{"symbols":["@location","@description"],"statements":[[10,"div"],[14,0,"content"],[12],[2,"\\n  "],[10,"h3"],[12],[2,"\\n    "],[10,"span"],[12],[2,"Location:"],[13],[2,"\\n    "],[10,"span"],[12],[1,[32,1]],[13],[13],[2,"\\n  "],[10,"h3"],[12],[2,"\\n    "],[10,"span"],[12],[2,"Weather:"],[13],[2,"\\n    "],[10,"span"],[12],[1,[32,2]],[13],[13],[2,"\\n"],[13]],"hasEval":false,"upvars":[]}',meta:{moduleName:"weatherapp/components/weather.hbs"}}),r=Ember._setComponentTemplate(t,Ember._templateOnlyComponent())
 e.default=r})),define("weatherapp/constants/OPEN_WEATHER_CONSTANTS",["exports"],(function(e){Object.defineProperty(e,"__esModule",{value:!0}),e.OPEN_WEATHER_CONSTANTS=void 0
 e.OPEN_WEATHER_CONSTANTS={BASE_URL:"https://api.openweathermap.org/data/2.5/weather",API_KEY:"6646b15234278a594d6d6cb6d7540a05"}})),define("weatherapp/controllers/index",["exports","fetch","weatherapp/constants/OPEN_WEATHER_CONSTANTS"],(function(e,t,r){function n(e,t,r,n,a,o,i){try{var u=e[o](i),l=u.value}catch(p){return void r(p)}u.done?t(l):Promise.resolve(l).then(n,a)}Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0
 var a=Ember.Controller.extend({init:function(){this._super.apply(this,arguments),this.handlePermission()},handlePermission:function(){var e=this,t={enableHighAccuracy:!1,maximumAge:3e4,timeout:2e4}
-navigator.permissions.query({name:"geolocation"}).then((function(r){"granted"==r.state?(e.report(r.state),navigator.geolocation.getCurrentPosition(e.revealPosition.bind(e),e.positionDenied,t)):"prompt"==r.state?(e.report(r.state),e.set("styleProperty","display: none;"),"geolocation"in navigator||alert("No geolocation available!"),navigator.geolocation.getCurrentPosition(e.revealPosition.bind(e),e.positionDenied,t)):"denied"==r.state&&(e.report(r.state),e.set("styleProperty","display: inline;")),r.onchange=function(){e.report(r.state)}}))},report:function(e){console.log("Permission "+e)},revealPosition:function(e){var a,o=this
+navigator.permissions.query({name:"geolocation"}).then((function(r){"granted"==r.state?navigator.geolocation.getCurrentPosition(e.revealPosition.bind(e),e.positionDenied,t):"prompt"==r.state?(e.set("styleProperty","display: none;"),"geolocation"in navigator||alert("No geolocation available!"),navigator.geolocation.getCurrentPosition(e.revealPosition.bind(e),e.positionDenied,t)):"denied"==r.state&&e.set("styleProperty","display: inline;")}))},revealPosition:function(e){var a,o=this
 return(a=regeneratorRuntime.mark((function n(){var a,i,u,l
 return regeneratorRuntime.wrap((function(n){for(;;)switch(n.prev=n.next){case 0:return a=e.coords.latitude,i=e.coords.longitude,n.next=4,(0,t.default)("".concat(r.OPEN_WEATHER_CONSTANTS.BASE_URL,"?lat=").concat(a,"&lon=").concat(i,"&appid=").concat(r.OPEN_WEATHER_CONSTANTS.API_KEY))
 case 4:return u=n.sent,n.next=7,u.json()
-case 7:l=n.sent,o.set("data",l),console.log(l)
-case 10:case"end":return n.stop()}}),n)})),function(){var e=this,t=arguments
+case 7:l=n.sent,o.set("data",l)
+case 9:case"end":return n.stop()}}),n)})),function(){var e=this,t=arguments
 return new Promise((function(r,o){var i=a.apply(e,t)
-function u(e){n(i,r,o,u,l,"next",e)}function l(e){n(i,r,o,u,l,"throw",e)}u(void 0)}))})()},positionDenied:function(){console.log("denied")},getdata:function(e){this.set("data",e._result)}})
+function u(e){n(i,r,o,u,l,"next",e)}function l(e){n(i,r,o,u,l,"throw",e)}u(void 0)}))})()},positionDenied:function(){},getdata:function(e){this.set("data",e._result)}})
 e.default=a})),define("weatherapp/controllers/search",["exports","fetch","weatherapp/constants/OPEN_WEATHER_CONSTANTS"],(function(e,t,r){var n,a,o
 function i(e,t,r,n,a,o,i){try{var u=e[o](i),l=u.value}catch(p){return void r(p)}u.done?t(l):Promise.resolve(l).then(n,a)}function u(e,t,r,n,a){var o={}
 return Object.keys(n).forEach((function(e){o[e]=n[e]})),o.enumerable=!!o.enumerable,o.configurable=!!o.configurable,("value"in o||o.initializer)&&(o.writable=!0),o=r.slice().reverse().reduce((function(r,n){return n(e,t,r)||r}),o),a&&void 0!==o.initializer&&(o.value=o.initializer?o.initializer.call(a):void 0,o.initializer=void 0),void 0===o.initializer&&(Object.defineProperty(e,t,o),o=null),o}Object.defineProperty(e,"__esModule",{value:!0}),e.default=void 0
@@ -35,13 +35,13 @@ var l=Ember.Controller.extend((n=Ember._action,a=Ember._action,u(o={init:functio
 return(n=regeneratorRuntime.mark((function n(){var o,i,u
 return regeneratorRuntime.wrap((function(n){for(;;)switch(n.prev=n.next){case 0:if(0!==e.currentTarget.value.length){n.next=3
 break}return a.set("status","empty"),n.abrupt("return")
-case 3:return n.prev=3,o=e.currentTarget.value,console.log(e.currentTarget.value),a.set("status","pending"),n.next=9,(0,t.default)("".concat(r.OPEN_WEATHER_CONSTANTS.BASE_URL,"?q=").concat(o,"&appid=").concat(r.OPEN_WEATHER_CONSTANTS.API_KEY))
-case 9:return i=n.sent,n.next=12,i.json()
-case 12:u=n.sent,a.set("data",u),n.next=19
+case 3:return n.prev=3,o=e.currentTarget.value,a.set("status","pending"),n.next=8,(0,t.default)("".concat(r.OPEN_WEATHER_CONSTANTS.BASE_URL,"?q=").concat(o,"&appid=").concat(r.OPEN_WEATHER_CONSTANTS.API_KEY))
+case 8:return i=n.sent,n.next=11,i.json()
+case 11:u=n.sent,a.set("data",u),n.next=18
 break
-case 16:n.prev=16,n.t0=n.catch(3),a.set("status","rejected")
-case 19:return n.prev=19,a.set("status","resolved"),n.finish(19)
-case 22:case"end":return n.stop()}}),n,null,[[3,16,19,22]])})),function(){var e=this,t=arguments
+case 15:n.prev=15,n.t0=n.catch(3),a.set("status","rejected")
+case 18:return n.prev=18,a.set("status","resolved"),n.finish(18)
+case 21:case"end":return n.stop()}}),n,null,[[3,15,18,21]])})),function(){var e=this,t=arguments
 return new Promise((function(r,a){var o=n.apply(e,t)
 function u(e){i(o,r,a,u,l,"next",e)}function l(e){i(o,r,a,u,l,"throw",e)}u(void 0)}))})()},handleInput:function(e){""===e.currentTarget.value&&this.set("status","empty")}},"search",[n],Object.getOwnPropertyDescriptor(o,"search"),o),u(o,"handleInput",[a],Object.getOwnPropertyDescriptor(o,"handleInput"),o),o))
 e.default=l})),define("weatherapp/data-adapter",["exports","@ember-data/debug"],(function(e,t){Object.defineProperty(e,"__esModule",{value:!0}),Object.defineProperty(e,"default",{enumerable:!0,get:function(){return t.default}})})),define("weatherapp/helpers/and",["exports","ember-truth-helpers/helpers/and"],(function(e,t){Object.defineProperty(e,"__esModule",{value:!0}),Object.defineProperty(e,"default",{enumerable:!0,get:function(){return t.default}}),Object.defineProperty(e,"and",{enumerable:!0,get:function(){return t.and}})})),define("weatherapp/helpers/app-version",["exports","weatherapp/config/environment","ember-cli-app-version/utils/regexp"],(function(e,t,r){function n(e){var n=arguments.length>1&&void 0!==arguments[1]?arguments[1]:{},a=t.default.APP.version,o=n.versionOnly||n.hideSha,i=n.shaOnly||n.hideVersion,u=null
