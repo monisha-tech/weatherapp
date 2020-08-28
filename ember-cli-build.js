@@ -2,16 +2,28 @@
 
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
+const isProductionMode = EmberApp.env() === "production";
+
 module.exports = function(defaults) {
-  let app = new EmberApp(defaults, {
-    // Add options here
+  let config = {
+    SRI: {
+      enabled: false
+    },
     'esw-cache-fallback': {
       patterns: [
         'https://api.openweathermap.org/(.+)',
         'http://localhost:4200/sw-registration.js'
       ],
     }
-  });
+  };
+  if (isProductionMode) {
+    config['esw-cache-fallback'].patterns[1] = 'https://monisha-tech.github.io/weatherapp/(.+)'
+    config['ember-service-worker'] = {
+      registrationStrategy: 'inline',
+      rootUrl: "/weatherapp/"
+    };
+  }
+  let app = new EmberApp(defaults, config);
 
   // Use `app.import` to add additional libraries to the generated
   // output files.

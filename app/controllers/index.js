@@ -17,7 +17,6 @@ export default Controller.extend({
     };
     navigator.permissions.query({name:'geolocation'}).then(function(result) {
       if (result.state == 'granted') {
-        self.report(result.state);
         navigator.geolocation.getCurrentPosition(self.revealPosition.bind(self),self.positionDenied,geoSettings);
       } else if (result.state == 'prompt') {
         self.report(result.state);
@@ -34,10 +33,6 @@ export default Controller.extend({
     });
   },
 
-  report(state) {
-    console.log('Permission ' + state);
-  },
-
   async revealPosition(position) {
     var latitude = position.coords.latitude;
     var longitude = position.coords.longitude;
@@ -47,7 +42,7 @@ export default Controller.extend({
   },
 
   positionDenied() {
-    console.log('denied');
+    // Need to handle permission denied
   },
 
   getdata(json) {
