@@ -9,7 +9,6 @@ module.exports = function(defaults) {
     SRI: {
       enabled: false
     },
-    // Add options here
     'esw-cache-fallback': {
       patterns: [
         'https://api.openweathermap.org/(.+)',
@@ -18,10 +17,11 @@ module.exports = function(defaults) {
     }
   };
   if (isProductionMode) {
-    config.fingerprint = {
-      prepend: '/weatherapp/'
+    config['esw-cache-fallback'].patterns[1] = 'https://monisha-tech.github.io/weatherapp/(.+)'
+    config['ember-service-worker'] = {
+      registrationStrategy: 'inline',
+      rootUrl: "/weatherapp/"
     };
-    config['esw-cache-fallback'].patterns[1] = 'https://monisha-tech.github.io/weatherapp/sw-registration.js'
   }
   let app = new EmberApp(defaults, config);
 
