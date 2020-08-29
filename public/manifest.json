@@ -26,14 +26,20 @@
   "theme_color": "#3367D6",
   "shortcuts": [
     {
-      "name": "Search weather in your city",
-      "short_name": "City",
+      "name": "Search",
+      "short_name": "Search",
       "description": "View weather information for a city",
       "url": "/weatherapp/#/search",
-      "icons": [{
-        "src": "/weatherapp/assets/search-shortcut-f2273f185fc0008d1a94a1efdefa70c6.png",
-        "sizes": "96x96"
-      }]
+      "icons": [
+        {
+          "src": "/weatherapp/assets/search-shortcut-f2273f185fc0008d1a94a1efdefa70c6.png",
+          "sizes": "96x96"
+        },
+        {
+          "src": "/weatherapp/assets/search-shortcut-48-effb5530ed135a9aab9c7bee7f445f68.png",
+          "sizes": "48x48"
+        }
+      ]
     }
   ]
 }
